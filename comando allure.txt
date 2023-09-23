@@ -1,0 +1,3 @@
+comando: 
+
+allure serve C:\Users\DLA-LIS05-PC015\Desktop\TestingFest\AutomationWorkshopMentorMate\target\allure-results
