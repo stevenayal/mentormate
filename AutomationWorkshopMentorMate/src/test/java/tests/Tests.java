@@ -1,6 +1,8 @@
 package tests;
 
 import common.TestObject;
+import io.restassured.RestAssured;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -37,8 +39,15 @@ public class Tests extends TestObject {
 
     @Test
     public void logInTest() {
+        String username = "Steven" + System.currentTimeMillis();
         //Open website
+        RestAssured.given().
+                header("Content-Type","application/json").
+                body(new JSONObject().put("user-name",username).put("password","MTIzNDU2").toString()).
 
+                when().post("https://api.demoblaze.com/signup").
+
+                then().statusCode(200);
 
         //Find and click log in button
 
